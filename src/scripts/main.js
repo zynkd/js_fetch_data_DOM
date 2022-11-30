@@ -1,8 +1,9 @@
 'use strict';
 
-const BASE_URL = 'https://mate-academy.github.io/phone-catalogue-static/api';
+const BASE_URL =
+  'https://mate-academy.github.io/phone-catalogue-static/api/phones';
 
-const request = (url) => {
+const request = (url = '') => {
   return fetch(`${BASE_URL}${url}`)
     .then((response) => {
       if (!response.ok) {
@@ -26,7 +27,7 @@ const request = (url) => {
     .catch((error) => setTimeout(Promise.reject(new Error(error)), 5000));
 };
 
-const getPhones = () => request('/phones.json');
+const getPhones = () => request('.json');
 
 const getPhonesDetails = () => {
   const list = document.createElement('ul');
